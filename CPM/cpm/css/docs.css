@@ -1,0 +1,76 @@
+BODY {
+	font-family: Times;
+	font-size: 10.5pt;
+	text-align: left;
+}
+
+td {
+	font-family: Times;
+	font-size: 10.5pt;
+}
+
+H1, H2, H3, H4, H5, H6 {
+	font-weight: bold;
+	margin-top: 0.5em;
+	margin-bottom: 0.3em;
+}
+
+H1 { font-size: 19pt }
+H2 { font-size: 17pt }
+H3 { font-size: 15pt }
+H4 { font-size: 13pt }
+H5 { font-size: 12pt }
+H6 { font-size: 10pt }
+
+OL, UL, DL, BLOCKQUOTE, PRE {
+margin-top: .1em;
+margin-bottom: .1em;
+}
+
+P {
+line-height: 1.2em;
+text-indent: 0;
+margin-bottom: .6em;
+}
+
+OL, UL, DD { margin-left: 1.5em }
+
+TT, KBD, PRE { font-family: Courier }
+
+PRE { font-size: 9pt }
+
+BLOCKQUOTE {
+margin-left: 1em;
+margin-right: 1em;
+}
+
+ADDRESS {
+margin-top: 0.5em;
+margin-bottom: 0.5em;
+}
+
+TABLE {
+margin-top: 1.3em;
+margin-bottom: .5em;
+}
+
+DIV.noprint { display: none }
+
+DEL { text-decoration: line-through }
+
+HR { 
+	border: 0;
+	color: black;
+	background-color: black;
+	height: 1px;
+}
+
+A:link { color: black }
+
+.signature {
+	border-top: solid 1px;
+	font-size: 11pt;
+	font-variant: small-caps;
+	vertical-align: top;
+}
+

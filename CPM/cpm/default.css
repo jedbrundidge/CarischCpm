@@ -1,0 +1,45 @@
+@CHARSET "ISO-8859-1";
+
+table {
+	border: 1px solid #B0B0B0
+}
+
+td,tr, thead {
+	border: 0;
+	font-family: Arial;
+	font-size: 11pt
+}
+
+input, select {
+	font-family: Courier;
+	display: inline;
+	border: solid 1px
+}
+
+input[type="submit"],input[type="button"] {
+	font-family: Arial;
+}
+input[type="hidden"] {
+	border: none;
+}
+
+.noborder {
+	border: none;
+	}
+
+input.num {
+	font-family: Courier;
+}
+
+#susgroup {
+	visibility: hidden
+}
+
+#othergroup {
+	visibility: hidden
+}
+
+body {
+	font-family: Arial;
+	font-size: 11pt;
+}

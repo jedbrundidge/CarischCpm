@@ -1,0 +1,52 @@
+<font face="Arial" size="2">
+<b>Form 8850</b><br>
+
+<input type="hidden" name="katrina[]" value="0">
+<input type="hidden" name="tanf[]" value="0">
+<input type="hidden" name="swa[]" value="0">
+<input type="hidden" name="memfam[]" value="0">
+<input type="hidden" name="vet[]" value="0">
+
+<input type="checkbox" style="border none;" name="katrina[]" <?php if ($this->session->userdata('katrina')) { echo "CHECKED"; } ?>></input>Check here if you are completing this form <b>before</b> August 28, 2009, and you lived in the area impacted by Hurricane<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Katrina on August 28, 2005. If so, please enter the address, including county or parish and state where you lived at that time.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" size="90%" name="katrina_address" value="<?php echo $this->session->userdata('katrina_address'); ?>"<br /><br /><br />
+<input type="checkbox" style="border none;" name="swa[]" <?php if ($this->session->userdata('swa')) { echo "CHECKED"; } ?>></input>Check here if you received a conditional certification from the state workforce agency (SWA) or a participating local <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;agency or the work opportunity credit.<br>
+<br>
+<input type="checkbox" style="border none;" name="tanf[]" <?php if ($this->session->userdata('tanf')) { echo "CHECKED"; } ?>></input>Check here if any of the following statements apply to you. <br />
+&nbsp;&nbsp;&nbsp;* I am a member of a family that has received assistance from Temporary Assistance for Needy Families (TANF) for any <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9 months during the past 18 months. <br />
+&nbsp;&nbsp;&nbsp;* I am a veteran and a member of a family that received Supplemental Nutrition Assistance Program (SNAP) benefits<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(food stamps) for at least a 3-month period during the past 15 months. <br />
+&nbsp;&nbsp;&nbsp;* I was referred here by a rehabilitation agency approved by the state, an employment network under the Ticket to Work <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;program, or the Department of Veterans Affairs. <br />
+&nbsp;&nbsp;&nbsp;* I am at least age 18 but not age 40 or older and I am a member of a family that: <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>a</b> Received SNAP benefits (food stamps) for the past 6 months, or <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>b</b> Received SNAP benefits (food stamps) for at least 3 of the past 5 months, but is no longer eligible to receive <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;them. <br />
+&nbsp;&nbsp;&nbsp;* During the past year, I was convicted of a felony or released from prison for a felony. <br />
+&nbsp;&nbsp;&nbsp;* I received supplemental security income (SSI) benefits for any month ending during the past 60 days. <br />
+&nbsp;&nbsp;&nbsp;* I am a veteran and I was discharged or released from active duty in the U.S. Armed Forces during the past 5 years <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;and, for at least 4 weeks during the past year, I received unemployment compensation. <br />
+&nbsp;&nbsp;&nbsp;* I am at least age 16 but not age 25 or older, and: <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>a</b> During the past 6 months, I have not attended a secondary, technical, or post-secondary school for more than <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;an average of 10 hours per week, not counting periods during which the school was closed for scheduled <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;vacations, and <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>b</b>
+ During the past 6 months, if I was employed, during each consecutive 3-month period within the past 6 months, <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;I earned less than I would have earned if I had worked for the applicable minimum wage 30 hours every week  <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;during the 3-month period, and <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>c</b>
+I do not have a certificate of graduation from a secondary school or a General Education Development (GED) <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;certificate or I have a certificate that was awarded at least 6 months ago and I have not held a job (other than <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;occasionally) or been admitted to a technical or post-secondary school since I received the certificate.<br /><br />
+<input type="checkbox" style="border none;" name="vet[]" <?php if ($this->session->userdata('vet')) { echo "CHECKED"; } ?>></input>Check here if you are a veteran entitled to compensation for a service-connected disability and, during the past year,<br />
+&nbsp;&nbsp;&nbsp;you were:<br />
+&nbsp;&nbsp;&nbsp;* Discharged or released from active duty in the U.S. Armed Forces, or<br />
+&nbsp;&nbsp;&nbsp;* Unemployed for a period or periods totaling at least 6 months.<br><br>
+<input type="checkbox" style="border none;" name="memfam[]" <?php if ($this->session->userdata('memfam')) { echo "CHECKED"; } ?>></input>Check here if you are a member of a family that: <br />
+&nbsp;&nbsp;&nbsp;* Received TANF payments for at least the past 18 months, or <br />
+&nbsp;&nbsp;&nbsp;* Received TANF payments for any 18 months beginning after August 5, 1997, and the earliest 18-month period beginning <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;after August 5, 1997, ended during the past 2 years, or <br />
+&nbsp;&nbsp;&nbsp;* Stopped being eligible for TANF payments during the past 2 years because federal or state law limited the maximum <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;time those payments could be made. <br />
+</font>

@@ -1,0 +1,234 @@
+function onlyNumbers(evt) {
+	var e = event || evt;
+	var charCode = e.which || e.keyCode;
+	if (charCode > 31 && (charCode < 46 || charCode > 57))
+		return false;
+	return true;
+}
+
+function checked(chk) {
+var check = chk;
+var field = document.stubs.ids;
+for (i = 0; i < field.length - 1; i++)
+	field[i].checked = check;
+}
+
+function nonEmpty() {
+	var check = document.getElementsByName('rehire');
+	var sel = '';
+	for (var i=0;i<check.length;i++) {
+		if (check[i].checked) {
+			sel = check[i].value;
+		}
+	}
+	if (document.getElementById('no_rehire_desc').value == '' && sel == 'No') {
+		alert('Please state the reason why you will not rehire this employee.');
+		return false;
+	}
+	return true;
+}
+
+function show() {
+	var n = document.new_hire.list_id.selectedIndex;
+	if (n==0) {
+		document.getElementById('d2').style.display='none';
+		document.getElementById('d3').style.display='none';
+		document.getElementById('lb').style.display='none';
+		document.getElementById('lc').style.display='none';
+		document.getElementById('d1').style.display='block';
+		document.getElementById('la').style.display='block';
+	} else  {
+		document.getElementById('d1').style.display='none';
+		document.getElementById('la').style.display='none';
+		document.getElementById('d2').style.display='block';
+		document.getElementById('d3').style.display='block';
+		document.getElementById('lb').style.display='block';
+		document.getElementById('lc').style.display='block';
+	}
+}
+
+function go_home() {
+	location.href="/cpm/index.php/personnel"
+}
+
+
+function Post(fid) {
+	var info;
+	var curl = location.href;
+	var form = document.getElementById('form' + fid).elements;
+	for(var i=0;i<form.length;i++) {
+		if ((form[i].checked && form[i].type == "radio") || form[i].type != "radio") {
+			info += "&" + form[i].name + "=" + form[i].value;
+		}
+	}
+	info += "&fid=" + fid;
+	try {
+		var xmlhttp = new XMLHttpRequest();
+	} catch (e) {
+		try {
+			var xmlhttp = new ActiveXObject('Microsoft.XMLHTTP');
+		} catch (e) {
+			//document.write('get a decent browser');
+		}
+	}
+	
+	xmlhttp.onreadystatechange = handler;
+	xmlhttp.open("POST","/cpm/index.php/personnel/proc_sessions", true);
+	xmlhttp.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+	xmlhttp.send(info);
+	
+	function handler() {
+		if(xmlhttp.readyState == 4 && xmlhttp.responsetext == "1") {
+			location.href = curl;
+		}
+	}
+}
+
+function oc() {return true;}
+function on_Change(next, page, c_page) {
+	var c_page = c_page;
+	var next = next;
+	var page = page;
+
+	var infoArray = [];
+	var cInfo;
+
+	switch (c_page) {
+	case 1:
+		infoArray['ssn'] = document.new_hire.ssn.value;
+		infoArray['first_name'] = document.new_hire.first_name.value;
+		infoArray['last_name'] = document.new_hire.last_name.value;
+		infoArray['middle_initial'] = document.new_hire.middle_initial.value;
+		infoArray['ethnic_code'] = document.new_hire.ethnic_code.value;
+		infoArray['gender'] = document.new_hire.gender.value;
+		infoArray['marital_status'] = document.new_hire.marital_status.value;
+		infoArray['month'] = document.new_hire.month.value;
+		infoArray['day'] = document.new_hire.day.value;
+		infoArray['year'] = document.new_hire.year.value;
+		infoArray['smonth'] = document.new_hire.smonth.value;
+		infoArray['sday'] = document.new_hire.sday.value;
+		infoArray['syear'] = document.new_hire.syear.value;
+		infoArray['street_address'] = document.new_hire.street_address.value;
+		infoArray['city'] = document.new_hire.city.value;
+		infoArray['state'] = document.new_hire.state.value;
+		infoArray['zip'] = document.new_hire.zip.value;
+		infoArray['phone'] = document.new_hire.phone.value;
+		infoArray['county'] = document.new_hire.county.value;
+		break;
+	case 2:
+		infoArray['position'] = document.new_hire.position.value;
+		infoArray['payrate'] = document.new_hire.payrate.value;
+		infoArray['aba_number'] = document.new_hire.aba_number.value;
+		infoArray['account_number'] = document.new_hire.account_number.value;
+		infoArray['allowances'] = document.new_hire.allowances.value;
+		infoArray['withheld'] = document.new_hire.withheld.value;
+		infoArray['exempt'] = 0;
+		infoArray['carisch_dimes'] = 0;
+		if (document.new_hire.account_type[0].checked) {
+			infoArray['account_type'] = 'checking';
+		} else if (document.new_hire.account_type[1].checked) {
+			infoArray['account_type'] = 'savings';
+		}
+
+		var cd = document.new_hire['carisch_dimes[]'];
+		if (cd[1].checked) {
+			infoArray['carisch_dimes'] = 1;
+		}
+
+		var ex = document.new_hire['exempt[]'];
+		if (ex[1].checked) {
+			infoArray['exempt'] = 1;
+		}
+		break;
+	case 3:
+		for (i=0;i<4;i++) {
+			if (document.new_hire.citizenship[i].checked) {
+				infoArray['citizenship'] = i;
+			}
+		}
+		infoArray['list_id'] = document.new_hire.list_id.value;
+		
+		infoArray['alien_auth_until'] = document.new_hire.alien_auth_until.value;
+		infoArray['alien_admission_number'] = document.new_hire.alien_admission_number.value;
+		
+		infoArray['a_doc_title'] = document.new_hire.a_doc_title.value;
+		infoArray['a_issuing_auth'] = document.new_hire.a_issuing_auth.value;
+		infoArray['a_docnum'] = document.new_hire.a_docnum.value;
+		infoArray['a_expiredate'] = document.new_hire.a_expiredate.value;
+		infoArray['a_docnum2'] = document.new_hire.a_docnum2.value;
+		infoArray['a_expiredate2'] = document.new_hire.a_expiredate2.value;
+		
+		infoArray['b_doc_title'] = document.new_hire.b_doc_title.value;
+		infoArray['b_issuing_auth'] = document.new_hire.b_issuing_auth.value;
+		infoArray['b_docnum'] = document.new_hire.b_docnum.value;
+		infoArray['b_expiredate'] = document.new_hire.b_expiredate.value;
+		
+		infoArray['c_doc_title'] = document.new_hire.c_doc_title.value;
+		infoArray['c_issuing_auth'] = document.new_hire.c_issuing_auth.value;
+		infoArray['c_docnum'] = document.new_hire.c_docnum.value;
+		infoArray['c_expiredate'] = document.new_hire.c_expiredate.value;
+		
+		break;
+	case 4:
+		infoArray['katrina_address'] = document.new_hire['katrina_address'].value;
+		var cd = document.new_hire['katrina[]'];
+		if (cd[1].checked) {
+			infoArray['katrina'] = 1;
+		} else {
+			infoArray['katrina'] = 0;
+		}
+		var cd = document.new_hire['tanf[]'];
+		if (cd[1].checked) {
+			infoArray['tanf'] = 1;
+		} else {
+			infoArray['tanf'] = 0;
+		}
+		var cd = document.new_hire['vet[]'];
+		if (cd[1].checked) {
+			infoArray['vet'] = 1;
+		} else {
+			infoArray['vet'] = 0;
+		}
+		var cd = document.new_hire['memfam[]'];
+		if (cd[1].checked) {
+			infoArray['memfam'] = 1;
+		} else {
+			infoArray['memfam'] = 0;
+		}
+		var cd = document.new_hire['swa[]'];
+		if (cd[1].checked) {
+			infoArray['swa'] = 1;
+		} else {
+			infoArray['swa'] = 0;
+		}
+		break;
+	case 5:
+		
+		break;
+	}
+	for ( var i in infoArray) {
+		cInfo += "&" + i + "=" + infoArray[i];
+	}
+
+	try {
+		var xmlhttp = new XMLHttpRequest();
+	} catch (e) {
+		try {
+			var xmlhttp = new ActiveXObject('Microsoft.XMLHTTP');
+		} catch (e) {
+			document
+					.write('XML Request problem (xmlnh1), please report this issue to miket@carischinc.com');
+		}
+	}
+	xmlhttp.open("post",
+			"https://cpm.carischinc.com/cpm/index.php/personnel/new_hire", false);
+	xmlhttp.setRequestHeader('Content-Type',
+			'application/x-www-form-urlencoded; charset=UTF-8');
+	xmlhttp.send(cInfo);
+
+	if (next == true) {
+		window.location.href = "/cpm/index.php/personnel/new_hire/" + page;
+	} else {
+		window.location.href = "/cpm/index.php/personnel/new_hire/" + c_page;
+	}
+}
